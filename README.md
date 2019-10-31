@@ -20,3 +20,5 @@ Treat this exercise as if you were writing production code; think TDD, SOLID, cl
 For the extensibility part, be mindful of changing requirements like a different maximum combination length, or a different source of the input data.
 
 Don't spend too much time on this; an hour or so is fine.
+
+When starting this exercise, please make a fork of this repository.
