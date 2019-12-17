@@ -13,12 +13,10 @@ should result in the ouput:
 fo+obar=foobar
 ```
 
-Do this twice: the first solution should focus on performance, the second on extensibility.
-You can use whatever programming language you want.
+You can start by only supporting combinations of two words and improve the algorithm at the end of the exercise to support any combinations, if time permits.
 
-Treat this exercise as if you were writing production code; think TDD, SOLID, clean code and avoid primitive obsession.  
-For the extensibility part, be mindful of changing requirements like a different maximum combination length, or a different source of the input data.
+Treat this exercise as if you were writing production code; think TDD, SOLID, clean code and avoid primitive obsession. Be mindful of changing requirements like a different maximum combination length, or a different source of the input data.
 
-Don't spend too much time on this; an hour or so is fine.
+Don't spend too much time on this; an hour or so is fine. 
 
 When starting this exercise, please make a fork of this repository.
