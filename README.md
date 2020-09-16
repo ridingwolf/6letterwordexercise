@@ -13,10 +13,8 @@ should result in the ouput:
 fo+obar=foobar
 ```
 
-You can start by only supporting combinations of two words and improve the algorithm at the end of the exercise to support any combinations, if time permits.
+You can start by only supporting combinations of two words and improve the algorithm at the end of the exercise to support any combinations.
 
-Treat this exercise as if you were writing production code; think TDD, SOLID, clean code and avoid primitive obsession. Be mindful of changing requirements like a different maximum combination length, or a different source of the input data.
+Treat this exercise as if you were writing production code; think unit tests, SOLID, clean code and avoid primitive obsession. Be mindful of changing requirements like a different maximum combination length, or a different source of the input data.
 
-Don't spend too much time on this; an hour or so is fine. 
-
-When starting this exercise, please make a fork of this repository.
+Don't spend too much time on this.
