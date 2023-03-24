@@ -27,6 +27,7 @@ Feel free to send us a mail if you have any questions about the exercise.
 There's a file in the root of the repository, input.txt, that contains words of varying lengths (1 to 6 characters).
 
 Your objective is to show all combinations of those words that:
+
 - Together form a word of 6 characters.
 - That combination must also be present in input.txt.
 
