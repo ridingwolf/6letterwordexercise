@@ -3,14 +3,16 @@
 In this test case for the role of backend developer, you're going to implement an algorithmn. The objective is to test your skills as a developer.
 
 Technologies that should be used:
- - .NET
- - C#
+
+- .NET
+- C#
 
 Your code will be evaluated using the following criteria:
- - Correctness of the algorithm
- - Performance
- - Clean code
- - Seperation of concerns
+
+- Correctness of the algorithm
+- Performance
+- Clean code
+- Seperation of concerns
 
 The way the code is exposed is not important, this can be as simple as a console app.
 
