@@ -1,6 +1,6 @@
-# Technical Backend Developer test
+# Technical Developer test
 
-In this test case for the role of backend developer, you're going to implement an algorithmn. The objective is to test your skills as a developer.
+In this developer test case, you're going to implement an algorithmn. The objective is to test your skills as a developer.
 
 Technologies that should be used:
 
