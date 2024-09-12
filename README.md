@@ -16,11 +16,16 @@ Your code will be evaluated using the following criteria:
 
 The way the code needs to be run, is not important. This can be as simple as a console app.
 
-Be mindful of changing requirements like a different maximum combination length, or a different source of the input data. Don't spend too much time on this exercise. When submitting the exercise, briefly write down where you would improve the code if you were given more time.
-
-The assignment can be submitted, by sending us your solution through e-mail. The solution may be sent as a link to your repository, as a zip file in the mail, or uploaded to a file hosting service (eg: wetransfer).
+Be mindful of changing requirements like a different maximum combination length, or a different source of the input data. Don't spend too much time on this exercise. 
 
 Feel free to send us a mail if you have any questions about the exercise.
+
+## Submitting the exercise
+
+The assignment can be submitted by sending us your solution through e-mail: 
+
+- Briefly write down where you would improve the code if you were given more time.
+- The solution may be sent as a link to your repository, as a zip file in the mail, or uploaded to a file hosting service (eg: wetransfer).
 
 ## 6 letter words
 
