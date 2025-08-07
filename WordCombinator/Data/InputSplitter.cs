@@ -1,24 +1,21 @@
 ﻿namespace WordCombinator.Data;
 
 public class InputSplitter {
-  private readonly int _wordLength;
-
-  public InputSplitter(Configuration configuration) {
-    _wordLength = configuration.WordLength;
-  }
-
-  public (IEnumerable<string> WordParts, IEnumerable<string> ValidWords) Split(IEnumerable<string> inputData) {
+  public (IEnumerable<string> WordParts, IEnumerable<string> ValidWords) SplitPartsAndValidWords(IEnumerable<string> inputData, int expectedLength) {
     var wordParts = new List<string>();
     var validWords = new List<string>();
 
     foreach (var data in inputData) {
-      if (data.Length == _wordLength)
+      if (data.Length == expectedLength)
         validWords.Add(data);
       
-      if (data.Length < _wordLength)
+      if (data.Length < expectedLength)
         wordParts.Add(data);
-      
-      // data.Length > _wordLength -> data not valid, ignored in split should be handled by a validation service
+
+      if (data.Length > expectedLength) {
+        // words that are already too long get ignored
+        // maybe add some logging later
+      }
     }
     
     return new (wordParts, validWords);
