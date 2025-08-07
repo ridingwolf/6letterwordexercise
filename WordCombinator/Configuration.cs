@@ -1,5 +1,11 @@
 ﻿namespace WordCombinator;
 
 public class Configuration {
-  public int WordLength => 6;
+  public Configuration() {
+    WordLength = 6;
+    SourcePath = $@"{VisualStudioProvider.GetSolutionDirectory().FullName}\input.txt";
+  }
+  
+  public readonly int WordLength;
+  public readonly string SourcePath;
 }

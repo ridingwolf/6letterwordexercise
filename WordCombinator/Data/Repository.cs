@@ -1,11 +1,12 @@
 ﻿namespace WordCombinator.Data;
 
 public class Repository {
-  private readonly InputSplitter _inputSplitter = new();
+  private readonly InputSplitter _inputSplitter;
   private readonly string _sourcePath;
 
-  public Repository(string sourcePath) {
-    _sourcePath = sourcePath;
+  public Repository(Configuration configuration) {
+    _sourcePath = configuration.SourcePath;
+    _inputSplitter = new InputSplitter(configuration);
   }
   
   /// <summary> Gets formated input data </summary>

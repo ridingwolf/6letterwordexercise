@@ -4,13 +4,12 @@ using WordCombinator;
 using WordCombinator.Data;
 using WordCombinator.Domain;
 
-var inputFile =  $@"{VisualStudioProvider.GetSolutionDirectory().FullName}\input.txt";
-
 var tokenSource = CreateLinkedCancellationTokenSource();
-var repo = new Repository(inputFile);
+var configuration = new Configuration();
+var repo = new Repository(configuration);
 var resolver = new CombinationResolver();
 
-Console.WriteLine($"Start processing: {inputFile}");
+Console.WriteLine($"Start processing: {configuration.SourcePath}");
 Console.WriteLine("========================================");
 
 var (wordParts, validWords) = await repo.GetInputData(tokenSource.Token);
