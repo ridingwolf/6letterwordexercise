@@ -1,4 +1,4 @@
-﻿namespace WordCombinator.Data;
+﻿namespace WordCombinator.Domain;
 
 public class InputSplitter {
   public (IEnumerable<string> WordParts, IEnumerable<string> ValidWords) SplitPartsAndValidWords(IEnumerable<string> inputData, int expectedLength) {
