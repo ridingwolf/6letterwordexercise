@@ -5,7 +5,7 @@ namespace WordCombinator.Domain;
 public class CombinationResolver {
   private readonly InputSplitter _splitter = new();
   
-  public IEnumerable<(IEnumerable<string> Parts, string Word)> FindCombinations(IEnumerable<string> inputData, int expectedLength) {
+  public IEnumerable<Combination> FindCombinations(IEnumerable<string> inputData, int expectedLength) {
     var (parts, validWords) = _splitter.SplitPartsAndValidWords(inputData, expectedLength);
 
     throw new NotImplementedException("Todo implement logic");

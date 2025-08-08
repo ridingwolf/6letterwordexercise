@@ -15,8 +15,8 @@ Console.WriteLine("========================================");
 var inputData = await repo.GetInputData(tokenSource.Token);
 var results = resolver.FindCombinations(inputData, configuration.WordLength);
 
-foreach (var (parts, words) in results)
-  Console.WriteLine($"{string.Join('+', parts)}={words}");
+foreach (var combination in results)
+  Console.WriteLine(combination);
 
 if (tokenSource.IsCancellationRequested)
   return;
