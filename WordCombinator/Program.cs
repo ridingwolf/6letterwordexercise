@@ -17,7 +17,7 @@ Console.WriteLine("========================================");
 stopWatch.Start();
 
 var inputData = await repo.GetInputData(tokenSource.Token);
-var results = resolver.FindCombinations(inputData, configuration.WordLength);
+var results = resolver.FindCombinations(inputData, configuration.WordLength, configuration.MaximumNumberOfParts);
 
 foreach (var combination in results)
   Console.WriteLine(combination);

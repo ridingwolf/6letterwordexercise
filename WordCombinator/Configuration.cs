@@ -3,9 +3,11 @@
 public class Configuration {
   public Configuration() {
     WordLength = 6;
+    MaximumNumberOfParts = 2;
     SourcePath = $@"{VisualStudioProvider.GetSolutionDirectory().FullName}\input.txt";
   }
   
-  public readonly int WordLength;
-  public readonly string SourcePath;
+  public int WordLength { get; }
+  public int MaximumNumberOfParts { get; }
+  public string SourcePath { get; }
 }
