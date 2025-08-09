@@ -5,7 +5,7 @@ using WordCombinator;
 using WordCombinator.Data;
 using WordCombinator.Domain;
 
-var tokenSource = CreateLinkedCancellationTokenSource();
+var tokenSource = new CancellationTokenSource();
 var stopWatch = new Stopwatch();
 
 var configuration = new Configuration();
@@ -22,32 +22,8 @@ var results = resolver.FindCombinations(inputData, configuration.WordLength, con
 foreach (var combination in results)
   Console.WriteLine(combination);
 
-
 stopWatch.Stop();
-Console.WriteLine($"Took {stopWatch.ElapsedMilliseconds} milliseconds");
-if (tokenSource.IsCancellationRequested)
-  return;
-
 Console.WriteLine("========================================");
 Console.WriteLine($"Took {stopWatch.ElapsedMilliseconds/1000} seconds");
-tokenSource.Dispose();
-WaitForExitConfirmation();
-return;
-
-CancellationTokenSource CreateLinkedCancellationTokenSource()
-{
-  var source = new CancellationTokenSource();
-  Console.CancelKeyPress += (_, eventArgs) => {
-    Console.WriteLine("Cancelling...");
-    source.Cancel();
-    eventArgs.Cancel = true;
-  };
-  
-  return source;
-}
-
-void WaitForExitConfirmation()
-{
-  Console.WriteLine("Press 'the any key' to exit.");
-  Console.ReadKey();
-}
+Console.WriteLine("Press 'the any key' to exit.");
+Console.ReadKey();
