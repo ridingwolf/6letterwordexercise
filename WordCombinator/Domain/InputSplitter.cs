@@ -1,7 +1,7 @@
 ﻿namespace WordCombinator.Domain;
 
 public class InputSplitter {
-  public (IEnumerable<string> WordParts, IEnumerable<string> ValidWords) SplitPartsAndValidWords(IEnumerable<string> inputData, int expectedLength) {
+  public (IReadOnlyCollection<string> WordParts, IReadOnlyCollection<string> ValidWords) SplitPartsAndValidWords(IEnumerable<string> inputData, int expectedLength) {
     var wordParts = new List<string>();
     var validWords = new List<string>();
 

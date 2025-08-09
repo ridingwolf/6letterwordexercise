@@ -64,6 +64,16 @@ public class ResolverTestCaseData : IEnumerable<object[]> {
         (["f", "o", "o", "b", "a", "r"], "foobar"),
         (["f", "o", "o", "bar"], "foobar"),
         (["foo", "b", "a", "r"], "foobar"),
+        
+        // because "o" exists twice you get duplicates in possible combinations
+        // "f" "o1" "o2" ....
+        // "f" "o2" "o1" ....
+        // duplicates not removed until clear how duplicates should handled, some options are:
+        // - duplicates are OK
+        // - validate/sanitize input (will likely result in issues, removing the duplicate "o" would remove both combinations)
+        // - remove duplicates from results
+        (["f", "o", "o", "b", "a", "r"], "foobar"),
+        (["f", "o", "o", "bar"], "foobar"),
       ]
     }
   ];
