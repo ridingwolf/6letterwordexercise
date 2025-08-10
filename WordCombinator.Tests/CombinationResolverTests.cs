@@ -76,8 +76,8 @@ public class ResolverTestCaseData : IEnumerable<object[]> {
         (["foo", "b", "a", "r"], "foobar"),
         
         // because "o" exists twice you get duplicates in possible combinations
-        // "f" "o1" "o2" ....
-        // "f" "o2" "o1" ....
+        // "f" "o"[1] "o"[2] ....
+        // "f" "o"[2] "o"[1] ....
         // duplicates not removed until clear how duplicates should handled, some options are:
         // - duplicates are OK
         // - validate/sanitize input (will likely result in issues, removing the duplicate "o" would remove both combinations)
@@ -133,10 +133,10 @@ public class ResolverTestCaseData : IEnumerable<object[]> {
     => GetEnumerator();
 
   private class ResolverTestCase {
-    public string[] InputData { get; set; }
-    public (string[] Parts, string Result)[] ExpectedCombinations { get; set; }
-    public int WordLength { get; set; }
-    public int MaximumNumberOfParts { get; set; }
+    public required string[] InputData { get; init; }
+    public required (string[] Parts, string Result)[] ExpectedCombinations { get; init; }
+    public required int WordLength { get; init; }
+    public required int MaximumNumberOfParts { get; init; }
   }
 }
 

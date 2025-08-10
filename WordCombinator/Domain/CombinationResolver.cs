@@ -1,6 +1,4 @@
-﻿using WordCombinator.Infrastructure;
-
-namespace WordCombinator.Domain;
+﻿namespace WordCombinator.Domain;
 
 public class CombinationResolver {
   private readonly InputSplitter _splitter = new();
@@ -12,42 +10,52 @@ public class CombinationResolver {
     
     return ResolveCombinations(new PartialCombination(), parts, expectedLength, maximumNumberOfParts)
       .Where(combination => validWordLookup.Contains(combination.Result))
-      .Select(combination => new Combination(combination.Parts, combination.Result));
+      .Select(combination => new Combination(combination.PartsValues, combination.Result));
   }
   
   private IEnumerable<PartialCombination> ResolveCombinations(PartialCombination baseCombination, IReadOnlyCollection<string> parts, int expectedLength, int maximumNumberOfParts) {
     for (var i = 0; i < parts.Count; i++) {
+      if (baseCombination.PartsFoundAtIndexes.Contains(i))
+        continue;
       
-      var (part, otherParts) = parts.ExtractItemAtIndex(i);
-      var partialCombination = baseCombination.WithExtraPart(part);
+      var partialCombination = baseCombination.WithExtraPart(new PartialCombination.Part(parts.ElementAt(i), i));
 
-      if (partialCombination.Result.Length == expectedLength) {
+      if (partialCombination.Result.Length > expectedLength)
+        continue;
+      
+      if (partialCombination.Result.Length == expectedLength)
         yield return partialCombination;
-      }
-      else if (partialCombination.Result.Length < expectedLength && partialCombination.Parts.Count() < maximumNumberOfParts) {
-        foreach (var nextLevelPartialCombination in ResolveCombinations(partialCombination, otherParts, expectedLength, maximumNumberOfParts)) {
-            yield return nextLevelPartialCombination;
+      
+      if (partialCombination.NumberOfParts < maximumNumberOfParts) {
+        foreach (var nextLevelPartialCombination in ResolveCombinations(partialCombination, parts, expectedLength, maximumNumberOfParts)) {
+          yield return nextLevelPartialCombination;
         }
       }
     }
   }
   
   private class PartialCombination {
-
+    private readonly IReadOnlyCollection<Part> _parts;
+    
     public PartialCombination()
-      :this(new List<string>())
+      :this([])
     { }
-
-    private PartialCombination(IEnumerable<string> parts) {
-      Parts = parts.ToList();
-      Result = string.Join(null, Parts);
+    
+    private PartialCombination(IEnumerable<Part> parts) {
+      _parts = parts.ToList();
+      Result = string.Join(null, PartsValues);
     }
 
-    public IEnumerable<string> Parts { get; }
+    public IEnumerable<string> PartsValues => _parts.Select(p => p.Value);
+    public IEnumerable<int> PartsFoundAtIndexes => _parts.Select(p => p.FoundAtIndex);
+    public int NumberOfParts => _parts.Count;
+    
     public string Result { get; }
 
-    public PartialCombination WithExtraPart(string part) {
-      return new PartialCombination(Parts.Concat([part]));
+    public PartialCombination WithExtraPart(Part part) {
+      return new PartialCombination(_parts.Concat([part]));
     }
+    
+    public record Part(string Value, int FoundAtIndex);
   }
 }
